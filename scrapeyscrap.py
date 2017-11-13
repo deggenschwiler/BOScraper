@@ -1,13 +1,14 @@
 import csv
 import requests
 import json
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, SoupStrainer
 import operator
 import sys
 import re
 from urllib.request import urlopen
+import lxml
 
-''' find emails and phone numbers '''
+''' find emails and phone numbers
 def findcontactdetails(urlsypops):
     f = urlopen(urlsypops)
     s = BeautifulSoup(f, 'html.parser')
@@ -31,13 +32,23 @@ def findcontactdetails(urlsypops):
         contactdeets.append(" ")
     return contactdeets
 
-#data = "https://www.google.co.uk/search?q=\"video+marketing\"+UK+tel:"
-#response = requests.get(data)
-#jobject = json.loads(response.content.decode('utf8'))
+'''
 
-#newdict = jobject
+urlingtons = []
 
-list_of_rows = []
+data = "http://www.brandcalibre.com" #\"video+marketing\"+UK+tel:"
+querypage = urlopen(data)
+soupy = BeautifulSoup(querypage, 'lxml')
+
+for link in soupy
+    if link.has_attr('href'):
+        urlingtons.append(link['href'])
+
+print(urlingtons)
+
+# make list of urls from a google query
+
+list_of_urls = []
 
 class targetcompany:
     company = "name"
@@ -56,6 +67,11 @@ class targetcompany:
 targetcompanies = []
 
 #print(findcontactdetails("http://www.deggen.com"))
+
+
+# call function on each item in that list of urls
+
+
 
 
 '''
